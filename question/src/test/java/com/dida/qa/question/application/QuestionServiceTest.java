@@ -39,7 +39,7 @@ class QuestionServiceTest {
 
     @Test
     void should_save_answer_of_question() {
-        Answer answer = new Answer(1234L, "this is an answer", 5678);
+        Answer answer = new Answer(1, 1234L, "this is an answer", 5678);
         given(answerRepository.save(answer)).willReturn(answer);
 
         Answer submittedAnswer = questionService.submitAnswer(1234L, answer);

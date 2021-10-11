@@ -1,0 +1,35 @@
+
+POST http://localhost:8080/questions
+Content-Type: application/json
+
+{
+  "title": "this is a question",
+  "description": "this is description of question",
+  "submittedBy": 5678
+}
+
+###
+GET http://localhost:8080/questions?submittedBy=5678
+Accept: application/json
+
+###
+
+GET http://localhost:8080/questions?submittedBy=1234
+Accept: application/json
+
+###
+
+POST  http://localhost:8080/questions/1/answers
+Content-Type: application/json
+
+{
+  "content": "this is an answer",
+  "submittedBy": 5678
+}
+
+###
+
+GET http://localhost:8080/questions/1/answers
+Accept: application/json
+
+###

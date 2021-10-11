@@ -29,7 +29,7 @@ public class QuestionController {
         return questionService.queryQuestionList(submittedBy);
     }
 
-    @PostMapping(path= "{id}/anwsers")
+    @PostMapping(path= "{id}/answers")
     @ResponseStatus(HttpStatus.CREATED)
     public Answer submitAnswer(@PathVariable Long id, @RequestBody Answer answer) {
         return questionService.submitAnswer(id, answer);

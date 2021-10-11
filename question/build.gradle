@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'com.dida'
+group 'com.dida.qa'
 version '0.0.1-SNAPSHOT'
 
 repositories {
@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     implementation 'org.springframework:spring-context:5.3.10'
+    implementation 'jakarta.persistence:jakarta.persistence-api:2.2.3'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
 

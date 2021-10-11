@@ -56,7 +56,7 @@ class QuestionControllerTest {
 
     @Test
     void should_return_answer_list_of_question() throws Exception {
-        List<Answer> answers = singletonList(new Answer(1234, "this is an answer", 5678));
+        List<Answer> answers = singletonList(new Answer(1, 1234, "this is an answer", 5678));
         given(answerRepository.findByQuestionId(1234)).willReturn(answers);
 
         MockHttpServletRequestBuilder request = get("/questions/{id}/answers", 1234);
@@ -87,11 +87,11 @@ class QuestionControllerTest {
     void should_create_answer_for_question() throws Exception {
         Answer answer = new Answer();
         answer.setSubmittedBy(5678);
-        answer.setContent("this is an anwser");
+        answer.setContent("this is an answer");
         String requestBody = objectMapper.writeValueAsString(answer);
-        given(answerRepository.save(any())).willReturn(new Answer(1234, "this is an answer", 5678));
+        given(answerRepository.save(any())).willReturn(new Answer(1, 1234, "this is an answer", 5678));
 
-        MockHttpServletRequestBuilder request = post("/questions/{id}/anwsers", 1234)
+        MockHttpServletRequestBuilder request = post("/questions/{id}/answers", 1234)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBody);
         mockMvc.perform(request)

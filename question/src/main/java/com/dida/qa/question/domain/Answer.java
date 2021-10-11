@@ -1,13 +1,21 @@
 package com.dida.qa.question.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Getter
+@Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class Answer {
+    @Id
+    @GeneratedValue
+    private long id;
     private long questionId;
     private String content;
     private long submittedBy;
