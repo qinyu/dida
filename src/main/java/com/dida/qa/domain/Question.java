@@ -1,4 +1,4 @@
-package com.dida.qa.question.domain;
+package com.dida.qa.domain;
 
 import lombok.*;
 

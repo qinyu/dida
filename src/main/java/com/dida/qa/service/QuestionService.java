@@ -1,9 +1,9 @@
-package com.dida.qa.question.application;
+package com.dida.qa.service;
 
-import com.dida.qa.question.domain.Answer;
-import com.dida.qa.question.domain.Question;
-import com.dida.qa.question.repository.AnswerRepository;
-import com.dida.qa.question.repository.QuestionRepository;
+import com.dida.qa.domain.Answer;
+import com.dida.qa.domain.Question;
+import com.dida.qa.domain.repository.AnswerRepository;
+import com.dida.qa.domain.repository.QuestionRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

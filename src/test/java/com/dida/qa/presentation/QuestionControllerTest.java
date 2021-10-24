@@ -1,10 +1,10 @@
 package com.dida.qa.presentation;
 
-import com.dida.qa.question.domain.Answer;
-import com.dida.qa.question.domain.Question;
-import com.dida.qa.question.domain.Question.QuestionBuilder;
-import com.dida.qa.question.repository.AnswerRepository;
-import com.dida.qa.question.repository.QuestionRepository;
+import com.dida.qa.domain.Answer;
+import com.dida.qa.domain.Question;
+import com.dida.qa.domain.Question.QuestionBuilder;
+import com.dida.qa.domain.repository.AnswerRepository;
+import com.dida.qa.domain.repository.QuestionRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

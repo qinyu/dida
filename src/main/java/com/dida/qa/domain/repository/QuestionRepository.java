@@ -1,6 +1,6 @@
-package com.dida.qa.question.repository;
+package com.dida.qa.domain.repository;
 
-import com.dida.qa.question.domain.Question;
+import com.dida.qa.domain.Question;
 
 import java.util.List;
 

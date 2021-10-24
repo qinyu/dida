@@ -1,8 +1,8 @@
 package com.dida.qa.presentation;
 
-import com.dida.qa.question.application.QuestionService;
-import com.dida.qa.question.domain.Answer;
-import com.dida.qa.question.domain.Question;
+import com.dida.qa.service.QuestionService;
+import com.dida.qa.domain.Answer;
+import com.dida.qa.domain.Question;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
