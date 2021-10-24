@@ -1,0 +1,30 @@
+description: |
+  Represents a successful scenario of getting a beer
+  ```
+  given:
+      client is old enough
+  when:
+      he applies for a beer
+  then:
+      we'll grant him the beer
+  ```
+request:
+  method: POST
+  url: /questions
+  body:
+    title: "this is a question"
+    description: "this is description of question"
+    submittedBy: 5678
+  headers:
+    Content-Type: application/json
+response:
+  status: 201
+  body: |
+    {
+      "id": 1,
+      "title": "this is a question",
+      "description": "this is description of question",
+      "submittedBy": 5678
+    }
+  headers:
+    Content-Type: application/json

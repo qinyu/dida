@@ -1,0 +1,61 @@
+@startuml
+!include includes/C4_Component.puml
+
+AddElementTag("covered", $borderColor="#d73027")
+
+Container(DidaWeb, "Dida Web App", "Vue", "嘀嗒社区的前端应用：用户在这里提问或回答")
+Container(DidaAdminWeb, "Dida Admin Web App", "Vue", "嘀嗒社区的前端应用：用户在这里提问或回答")
+
+Container_Boundary(DidaApi, "Dida Api") {
+    Component(QuestionController, "Question Presentation", "MVC REST Controller", "提供问题和答案相关的查询和操作", $tags="covered")
+    Component(QuestionService, "Question Domain Service", "Java Classes", "圈子上下文的领域模型实现", $tags="covered")
+    Component(QuestionDomain, "Question Domain Model", "Java Classes", "问题上下文的领域模型实现", $tags="covered")
+    Component(QuestionJPA, "Question JPA Repository", "Java Classes", "圈子上下文的领域模型实现", $tags="covered")
+
+    Component(UserController, "User Presentation", "MVC REST Controller", "提供用户相关的查询和操作")
+    Component(UserService, "User Domain Service", "Java Classes", "圈子上下文的领域模型实现")
+    Component(UserDomain, "User Domain Model", "Java Classes", "用户上下文的领域模型实现")
+    Component(UserJPA, "User JPA Repository", "Java Classes", "圈子上下文的领域模型实现")
+
+    Component(CircleController, "Circle Presentation", "MVC REST Controller", "提供圈子相关的查询和操作")
+    Component(CircleApplication, "Circle Application Service", "Java Classes", "圈子上下文的领域模型实现")
+    Component(CircleService, "Circle Domain Service", "Java Classes", "圈子上下文的领域模型实现")
+    Component(CircleDomain, "Circle Domain Model", "Java Classes", "圈子上下文的领域模型实现")
+    Component(CircleJPA, "Circle JPA Repository", "Java Classes", "圈子上下文的领域模型实现")
+}
+
+ComponentDb(DidaDb, "Dida DB", "MySql", "description")
+
+Rel(DidaWeb, QuestionController, "请求", "REST")
+Rel(DidaWeb, UserController, "请求", "REST")
+Rel(DidaWeb, CircleController, "请求", "REST")
+
+Rel(DidaAdminWeb, QuestionController, "请求", "REST")
+Rel(DidaAdminWeb, UserController, "请求", "REST")
+Rel(DidaAdminWeb, CircleController, "请求", "REST")
+
+Rel(QuestionController, QuestionService, "依赖")
+Rel(QuestionController, QuestionDomain, "依赖")
+Rel(QuestionService, QuestionDomain, "依赖")
+Rel_U(QuestionJPA, QuestionDomain, "实现")
+Rel(QuestionJPA, DidaDb, "读写")
+
+Rel(UserController, UserService, "依赖")
+Rel(UserController, UserDomain, "依赖")
+Rel(UserService, UserDomain, "依赖")
+Rel_U(UserJPA, UserDomain, "实现")
+Rel(UserJPA, DidaDb, "读写")
+
+Rel(CircleController, CircleApplication, "依赖")
+Rel(CircleController, CircleService, "依赖")
+Rel(CircleController, CircleDomain, "依赖")
+Rel(CircleApplication, CircleService, "依赖")
+Rel(CircleApplication, CircleDomain, "依赖")
+Rel(CircleService, CircleDomain, "依赖")
+Rel_U(CircleJPA, CircleDomain, "实现")
+Rel(CircleJPA, DidaDb, "读写")
+
+Lay_R(QuestionController, UserController)
+Lay_L(CircleController, UserController)
+
+@enduml
