@@ -1,7 +1,7 @@
-package com.dida.qa.infrastructure;
+package com.dida.question.infrastructure;
 
-import com.dida.qa.domain.Question;
-import com.dida.qa.domain.repository.QuestionRepository;
+import com.dida.question.domain.Question;
+import com.dida.question.domain.repository.QuestionRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

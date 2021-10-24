@@ -1,4 +1,4 @@
-package com.dida.qa.domain;
+package com.dida.question.domain;
 
 import lombok.*;
 
@@ -8,15 +8,15 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
-public class Question {
+public class Answer {
     @Id
     @GeneratedValue
     private long id;
-    private String title;
-    private String description;
+    private long questionId;
+    private String content;
     private long submittedBy;
 }

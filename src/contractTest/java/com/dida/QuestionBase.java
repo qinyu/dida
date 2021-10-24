@@ -1,4 +1,4 @@
-package com.dida.qa;
+package com.dida;
 
 import io.restassured.config.EncoderConfig;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.web.context.WebApplicationContext;
 
 @SpringBootTest
-public abstract class ContractVerifierBase {
+public abstract class QuestionBase {
 
     @Autowired
     WebApplicationContext webApplicationContext;

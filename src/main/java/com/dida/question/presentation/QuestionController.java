@@ -1,8 +1,8 @@
-package com.dida.qa.presentation;
+package com.dida.question.presentation;
 
-import com.dida.qa.service.QuestionService;
-import com.dida.qa.domain.Answer;
-import com.dida.qa.domain.Question;
+import com.dida.question.service.QuestionService;
+import com.dida.question.domain.Answer;
+import com.dida.question.domain.Question;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,11 +25,15 @@ public class QuestionController {
     }
 
     @GetMapping
-    public List<Question> queryQuestionsSubmittedBy(@RequestParam("submittedBy") Long submittedBy) {
-        return questionService.queryQuestionList(submittedBy);
+    public List<Question> queryQuestionsSubmittedBy(@RequestParam(value = "submittedBy", required = false) Long submittedBy) {
+        if (submittedBy !=null) {
+            return questionService.queryQuestionList(submittedBy);
+        } else {
+            return questionService.queryQuestionList();
+        }
     }
 
-    @PostMapping(path= "{id}/answers")
+    @PostMapping(path = "{id}/answers")
     @ResponseStatus(HttpStatus.CREATED)
     public Answer submitAnswer(@PathVariable Long id, @RequestBody Answer answer) {
         return questionService.submitAnswer(id, answer);

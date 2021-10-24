@@ -41,7 +41,7 @@ dependencies {
     implementation 'org.mockito:mockito-core:3.12.4'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
-    testImplementation 'com.h2database:h2'
+    implementation 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
@@ -55,7 +55,7 @@ dependencyManagement {
 
 contracts {
     testFramework = "JUNIT5"
-    packageWithBaseClasses = 'com.dida.qa'
+    packageWithBaseClasses = 'com.dida'
 }
 
 contractTest {

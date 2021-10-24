@@ -1,20 +1,18 @@
-package com.dida.qa.presentation;
+package com.dida.question.presentation;
 
-import com.dida.qa.domain.Answer;
-import com.dida.qa.domain.Question;
-import com.dida.qa.domain.Question.QuestionBuilder;
-import com.dida.qa.domain.repository.AnswerRepository;
-import com.dida.qa.domain.repository.QuestionRepository;
-import com.dida.qa.service.QuestionService;
+import com.dida.question.domain.Answer;
+import com.dida.question.domain.Question;
+import com.dida.question.domain.Question.QuestionBuilder;
+import com.dida.question.domain.repository.AnswerRepository;
+import com.dida.question.domain.repository.QuestionRepository;
+import com.dida.question.service.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
@@ -45,6 +43,19 @@ class QuestionControllerTest {
     @Autowired
     ObjectMapper objectMapper;
 
+    @Test
+    void should_return_questions_list() throws Exception {
+        List<Question> questions = singletonList(new Question(1234,
+                "this is a question",
+                "this is description of question",
+                5678));
+        given(questionRepository.findAll()).willReturn(questions);
+
+        MockHttpServletRequestBuilder request = get("/questions");
+        mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(1234)));
+    }
     @Test
     void should_return_questions_list_submitted_by_user() throws Exception {
         List<Question> questions = singletonList(new Question(1234,

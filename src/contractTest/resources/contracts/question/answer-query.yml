@@ -1,0 +1,20 @@
+description: 查看问题答案
+request:
+  method: GET
+  url: /questions/1/answers
+  headers:
+    Accept: application/json
+response:
+  status: 200
+  body: |
+    [
+      {
+        "id": 2,
+        "questionId": 1,
+        "content": "this is an answer",
+        "submittedBy": 5679
+      }
+    ]
+  headers:
+    Content-Type: application/json
+

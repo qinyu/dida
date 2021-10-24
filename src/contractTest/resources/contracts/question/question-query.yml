@@ -1,0 +1,20 @@
+description: 查看所有问题
+request:
+  method: GET
+  url: /questions
+  headers:
+    Accept: application/json
+response:
+  status: 200
+  body: |
+    [
+      {
+        "id": 1,
+        "title": "this is a question",
+        "description": "this is description of question",
+        "submittedBy": 5678
+      }
+    ]
+  headers:
+    Content-Type: application/json
+
