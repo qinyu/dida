@@ -4,27 +4,27 @@
 AddElementTag("covered", $borderColor="#d73027")
 
 Container(DidaWeb, "Dida Web App", "Vue", "嘀嗒社区的前端应用：用户在这里提问或回答")
-Container(DidaAdminWeb, "Dida Admin Web App", "Vue", "嘀嗒社区的前端应用：用户在这里提问或回答")
+Container(DidaAdminWeb, "Dida Admin Web App", "Vue", "嘀嗒社区的管理应用：管理员在这里管理圈子、问题和答案")
 
 Container_Boundary(DidaApi, "Dida Api") {
-    Component(QuestionController, "Question Presentation", "MVC REST Controller", "提供问题和答案相关的查询和操作", $tags="covered")
-    Component(QuestionService, "Question Domain Service", "Java Classes", "圈子上下文的领域模型实现", $tags="covered")
-    Component(QuestionDomain, "Question Domain Model", "Java Classes", "问题上下文的领域模型实现", $tags="covered")
-    Component(QuestionJPA, "Question JPA Repository", "Java Classes", "圈子上下文的领域模型实现", $tags="covered")
+    Component(QuestionController, "Question Controller", "MVC REST Controller", "提供问题和答案相关的查询和操作API，Presentation层", $tags="covered")
+    Component(QuestionService, "Question Domain Service", "Java Classes", "问题上下文的领域服务，Service层", $tags="covered")
+    Component(QuestionDomain, "Question Domain Model", "Java Classes", "问题上下文的领域模型实现，Domain层", $tags="covered")
+    Component(QuestionJPA, "Question JPA Repository", "JpaRepository", "问题上下文的持久化实现，Infrastructure层", $tags="covered")
 
-    Component(UserController, "User Presentation", "MVC REST Controller", "提供用户相关的查询和操作")
-    Component(UserService, "User Domain Service", "Java Classes", "圈子上下文的领域模型实现")
-    Component(UserDomain, "User Domain Model", "Java Classes", "用户上下文的领域模型实现")
-    Component(UserJPA, "User JPA Repository", "Java Classes", "圈子上下文的领域模型实现")
+    Component(UserController, "User Presentation", "MVC REST Controller", "提供用户相关的查询和操作API，Presentation层")
+    Component(UserService, "User Domain Service", "Java Classes", "用户上下文的领域服务，Service层")
+    Component(UserDomain, "User Domain Model", "Java Classes", "用户上下文的领域模型实现，Domain层")
+    Component(UserJPA, "User JPA Repository", "JpaRepository", "用户上下文的持久化实现，Infrastructure层")
 
-    Component(CircleController, "Circle Presentation", "MVC REST Controller", "提供圈子相关的查询和操作")
-    Component(CircleApplication, "Circle Application Service", "Java Classes", "圈子上下文的领域模型实现")
-    Component(CircleService, "Circle Domain Service", "Java Classes", "圈子上下文的领域模型实现")
-    Component(CircleDomain, "Circle Domain Model", "Java Classes", "圈子上下文的领域模型实现")
-    Component(CircleJPA, "Circle JPA Repository", "Java Classes", "圈子上下文的领域模型实现")
+    Component(CircleController, "Circle Presentation", "MVC REST Controller", "提供圈子相关的查询和操作API，Presentation层")
+    Component(CircleApplication, "Circle Application", "Java Classes", "圈子上下文的应用服务，Application层")
+    Component(CircleService, "Circle Domain Service", "Java Classes", "圈子下文的领域服务，Service层")
+    Component(CircleDomain, "Circle Domain Model", "Java Classes", "圈子上下文的领域模型实现，Domain层")
+    Component(CircleJPA, "Circle JPA Repository", "JpaRepository", "圈子上下文的持久化实现，Infrastructure层")
 }
 
-ComponentDb(DidaDb, "Dida DB", "MySql", "description")
+ComponentDb(DidaDb, "Dida DB", "MySql", "嘀嗒社区数据库：包括用户、问答、圈子")
 
 Rel(DidaWeb, QuestionController, "请求", "REST")
 Rel(DidaWeb, UserController, "请求", "REST")
