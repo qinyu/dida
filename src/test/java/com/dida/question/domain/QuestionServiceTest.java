@@ -1,9 +1,10 @@
-package com.dida.question.service;
+package com.dida.question.domain;
 
 import com.dida.question.domain.Answer;
 import com.dida.question.domain.Question;
-import com.dida.question.domain.repository.AnswerRepository;
-import com.dida.question.domain.repository.QuestionRepository;
+import com.dida.question.domain.QuestionService;
+import com.dida.question.domain.AnswerRepository;
+import com.dida.question.domain.QuestionRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

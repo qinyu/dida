@@ -1,6 +1,6 @@
 package com.dida.question.presentation;
 
-import com.dida.question.service.QuestionService;
+import com.dida.question.domain.QuestionService;
 import com.dida.question.domain.Answer;
 import com.dida.question.domain.Question;
 import org.springframework.http.HttpStatus;

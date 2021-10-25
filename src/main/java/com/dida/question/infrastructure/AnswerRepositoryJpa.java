@@ -1,7 +1,7 @@
 package com.dida.question.infrastructure;
 
 import com.dida.question.domain.Answer;
-import com.dida.question.domain.repository.AnswerRepository;
+import com.dida.question.domain.AnswerRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

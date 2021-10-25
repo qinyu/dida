@@ -3,9 +3,9 @@ package com.dida.question.presentation;
 import com.dida.question.domain.Answer;
 import com.dida.question.domain.Question;
 import com.dida.question.domain.Question.QuestionBuilder;
-import com.dida.question.domain.repository.AnswerRepository;
-import com.dida.question.domain.repository.QuestionRepository;
-import com.dida.question.service.QuestionService;
+import com.dida.question.domain.AnswerRepository;
+import com.dida.question.domain.QuestionRepository;
+import com.dida.question.domain.QuestionService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +56,7 @@ class QuestionControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1234)));
     }
+
     @Test
     void should_return_questions_list_submitted_by_user() throws Exception {
         List<Question> questions = singletonList(new Question(1234,

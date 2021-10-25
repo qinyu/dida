@@ -1,4 +1,4 @@
-package com.dida.question.domain.repository;
+package com.dida.question.domain;
 
 import com.dida.question.domain.Question;
 
